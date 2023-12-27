@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
 		// check if user exists
 		const user = await User.findOne({ email });
-        console.log("found user :- ", user);
+		console.log("found user :- ", user);
 		if (!user) {
 			return NextResponse.json(
 				{ error: "User does not exists" },
@@ -53,9 +53,9 @@ export async function POST(request: NextRequest) {
 			success: true,
 		});
 
-		response.cookies.set("token", token, { httpOnly: true});
+		response.cookies.set("token", token, { httpOnly: true });
 
-        return response;
+		return response;
 	} catch (error: any) {
 		return NextResponse.json({ error: error.message }, { status: 500 });
 	}
